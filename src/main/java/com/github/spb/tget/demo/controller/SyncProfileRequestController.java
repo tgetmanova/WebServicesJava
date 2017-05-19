@@ -12,9 +12,9 @@ public class SyncProfileRequestController {
 
     public SyncProfileRequestController(final SyncProfileRequestManager syncProfileRequestManager) {
 
-        get("/users", (request, response) -> syncProfileRequestManager.getSyncProfileRequests(), getJsonResponseTransformer());
+        get("/profiles", (request, response) -> syncProfileRequestManager.getSyncProfileRequests(), getJsonResponseTransformer());
 
-        get("/users/:id", (req, res) -> {
+        get("/profiles/:id", (req, res) -> {
             String idString = req.params(":id");
             SyncProfileRequest syncProfileRequest = syncProfileRequestManager.getSyncProfileRequestById(UUID.fromString(idString));
             return syncProfileRequest;
