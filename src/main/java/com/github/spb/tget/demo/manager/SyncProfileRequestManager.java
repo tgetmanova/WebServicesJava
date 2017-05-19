@@ -1,6 +1,6 @@
 package com.github.spb.tget.demo.manager;
 
-import com.github.spb.tget.demo.data.UserSyncRequestConverter;
+import com.github.spb.tget.demo.converter.UserSyncRequestConverter;
 import com.github.spb.tget.demo.model.SyncProfileRequest;
 import com.github.spb.tget.demo.repository.InProcessUserRepository;
 import com.github.spb.tget.demo.repository.UserRepository;
@@ -20,8 +20,7 @@ public class SyncProfileRequestManager {
     {
         return this.userRepository.getUsers()
                 .stream()
-                .map(item -> UserSyncRequestConverter.ToSyncProfileRequest(item))
+                .map(item -> UserSyncRequestConverter.toSyncProfileRequest(item))
                 .collect(Collectors.toList());
-
     }
 }

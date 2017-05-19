@@ -1,10 +1,11 @@
-package com.github.spb.tget.demo.data;
+package com.github.spb.tget.demo.converter;
 
+import com.github.spb.tget.demo.data.UserEntity;
 import com.github.spb.tget.demo.model.SyncProfileRequest;
 
 public class UserSyncRequestConverter {
 
-    public static SyncProfileRequest ToSyncProfileRequest(UserEntity userEntity)
+    public static SyncProfileRequest toSyncProfileRequest(UserEntity userEntity)
     {
         if (userEntity == null)
         {
