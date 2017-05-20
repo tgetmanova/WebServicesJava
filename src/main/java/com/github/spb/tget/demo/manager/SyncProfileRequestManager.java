@@ -67,4 +67,14 @@ public class SyncProfileRequestManager {
 
         return syncProfileRequestToCreate;
     }
+
+    public void UpdateSyncProfileRequest(SyncProfileRequest syncProfileRequest)
+    {
+        SyncProfileRequest syncProfileRequestToUpdate = new SyncProfileRequest(syncProfileRequest.getUserId(),
+                UUID.randomUUID(), syncProfileRequest.getAdvertisingOptIn(),
+                LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()),
+                syncProfileRequest.getCountryIsoCode(), syncProfileRequest.getLocale());
+
+        this.userRepository.updateUser(UserSyncRequestConverter.toUserEntity(syncProfileRequestToUpdate));
+    }
 }

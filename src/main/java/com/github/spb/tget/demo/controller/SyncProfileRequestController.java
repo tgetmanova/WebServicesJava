@@ -14,8 +14,8 @@ public class SyncProfileRequestController {
 
         get("/profiles", (request, response) -> syncProfileRequestManager.getSyncProfileRequests(), getJsonResponseTransformer());
 
-        get("/profiles/:id", (req, res) -> {
-            String idString = req.params(":id");
+        get("/profiles/:id", (request, response) -> {
+            String idString = request.params(":id");
             SyncProfileRequest syncProfileRequest = syncProfileRequestManager.getSyncProfileRequestById(UUID.fromString(idString));
             return syncProfileRequest;
         }, getJsonResponseTransformer());
