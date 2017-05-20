@@ -7,9 +7,7 @@ import com.github.spb.tget.demo.model.SyncProfileRequest;
 import com.github.spb.tget.demo.repository.UserRepository;
 import com.github.spb.tget.demo.repository.UserRepositoryFactory;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
@@ -24,8 +22,11 @@ public class SyncProfileRequestManager {
     public SyncProfileRequestManager() throws IOException{
 
         Properties props = new Properties();
-        File propertiesPath = new File(Main.class.getClassLoader().getResource("app.properties").getPath());
-        props.load(new FileInputStream(propertiesPath));
+
+        try (InputStream reader = new FileInputStream(
+                new File(Main.class.getClassLoader().getResource("app.properties").getPath()))){
+            props.load(reader);
+        }
 
         this.userRepositoryFactory = new UserRepositoryFactory();
         this.userRepository = this.userRepositoryFactory.GetUserRepository(props.getProperty("repositoryType"));
