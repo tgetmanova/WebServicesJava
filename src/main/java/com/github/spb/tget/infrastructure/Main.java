@@ -1,7 +1,7 @@
-package com.github.spb.tget.demo;
+package com.github.spb.tget.infrastructure;
 
-import com.github.spb.tget.demo.controller.SyncProfileRequestController;
-import com.github.spb.tget.demo.manager.SyncProfileRequestManager;
+import com.github.spb.tget.restapi.spark.demo.SyncProfileRequestController;
+import com.github.spb.tget.infrastructure.manager.SyncProfileRequestManager;
 
 import java.io.IOException;
 

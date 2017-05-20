@@ -1,7 +1,7 @@
-package com.github.spb.tget.demo.converter;
+package com.github.spb.tget.infrastructure.converter;
 
-import com.github.spb.tget.demo.data.UserEntity;
-import com.github.spb.tget.demo.model.SyncProfileRequest;
+import com.github.spb.tget.infrastructure.data.UserEntity;
+import com.github.spb.tget.infrastructure.model.SyncProfileRequest;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;

@@ -1,4 +1,4 @@
-package com.github.spb.tget.demo.repository;
+package com.github.spb.tget.infrastructure.repository;
 
 public class UserRepositoryFactory {
 

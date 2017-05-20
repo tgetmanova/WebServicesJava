@@ -1,11 +1,11 @@
-package com.github.spb.tget.demo.manager;
+package com.github.spb.tget.infrastructure.manager;
 
-import com.github.spb.tget.demo.Main;
-import com.github.spb.tget.demo.converter.UserSyncRequestConverter;
-import com.github.spb.tget.demo.data.UserEntity;
-import com.github.spb.tget.demo.model.SyncProfileRequest;
-import com.github.spb.tget.demo.repository.UserRepository;
-import com.github.spb.tget.demo.repository.UserRepositoryFactory;
+import com.github.spb.tget.infrastructure.Main;
+import com.github.spb.tget.infrastructure.converter.UserSyncRequestConverter;
+import com.github.spb.tget.infrastructure.data.UserEntity;
+import com.github.spb.tget.infrastructure.model.SyncProfileRequest;
+import com.github.spb.tget.infrastructure.repository.UserRepository;
+import com.github.spb.tget.infrastructure.repository.UserRepositoryFactory;
 
 import java.io.*;
 import java.time.Instant;

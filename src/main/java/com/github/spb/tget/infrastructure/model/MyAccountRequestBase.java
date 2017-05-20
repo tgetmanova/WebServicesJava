@@ -1,4 +1,4 @@
-package com.github.spb.tget.demo.model;
+package com.github.spb.tget.infrastructure.model;
 
 import java.util.UUID;
 

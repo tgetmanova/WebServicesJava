@@ -1,10 +1,10 @@
-package com.github.spb.tget.demo.controller;
+package com.github.spb.tget.restapi.spark.demo;
 
-import static com.github.spb.tget.demo.converter.JsonDataConverter.*;
+import static com.github.spb.tget.infrastructure.converter.JsonDataConverter.*;
 import static spark.Spark.*;
 
-import com.github.spb.tget.demo.manager.SyncProfileRequestManager;
-import com.github.spb.tget.demo.model.SyncProfileRequest;
+import com.github.spb.tget.infrastructure.manager.SyncProfileRequestManager;
+import com.github.spb.tget.infrastructure.model.SyncProfileRequest;
 
 import java.util.UUID;
 

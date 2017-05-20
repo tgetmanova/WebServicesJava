@@ -1,28 +1,45 @@
-package com.github.spb.tget.demo.model;
+package com.github.spb.tget.infrastructure.data;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
-public class SyncProfileRequest extends MyAccountRequestBase {
+public class UserEntity {
+
+    private UUID userId;
+
+    private UUID requestId;
 
     private Boolean advertisingOptIn;
 
-    private LocalDateTime dateModified;
+    private Instant dateModified;
 
     private String countryIsoCode;
 
     private String locale;
 
-    public SyncProfileRequest() {
-    }
-
-    public SyncProfileRequest(UUID usersId, UUID requestId, Boolean advertisingOptIn,
-                              LocalDateTime dateModified, String countryIsoCode, String locale) {
-        super(usersId, requestId);
+    public UserEntity(UUID userId, UUID requestId, Boolean advertisingOptIn, Instant dateModified, String countryIsoCode, String locale) {
+        this.userId = userId;
+        this.requestId = requestId;
         this.advertisingOptIn = advertisingOptIn;
         this.dateModified = dateModified;
         this.countryIsoCode = countryIsoCode;
         this.locale = locale;
+    }
+
+    public UUID getUserId() {
+        return userId;
+    }
+
+    public void setUserId(UUID userId) {
+        this.userId = userId;
+    }
+
+    public UUID getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(UUID requestId) {
+        this.requestId = requestId;
     }
 
     public Boolean getAdvertisingOptIn() {
@@ -41,11 +58,11 @@ public class SyncProfileRequest extends MyAccountRequestBase {
         this.countryIsoCode = countryIsoCode;
     }
 
-    public LocalDateTime getDateModified() {
+    public Instant getDateModified() {
         return dateModified;
     }
 
-    public void setDateModified(LocalDateTime dateModified) {
+    public void setDateModified(Instant dateModified) {
         this.dateModified = dateModified;
     }
 

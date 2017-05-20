@@ -1,6 +1,6 @@
-package com.github.spb.tget.demo.repository;
+package com.github.spb.tget.infrastructure.repository;
 
-import com.github.spb.tget.demo.data.UserEntity;
+import com.github.spb.tget.infrastructure.data.UserEntity;
 
 import java.util.List;
 import java.util.UUID;

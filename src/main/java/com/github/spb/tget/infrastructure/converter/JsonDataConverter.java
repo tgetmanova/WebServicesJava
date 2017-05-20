@@ -1,4 +1,4 @@
-package com.github.spb.tget.demo.converter;
+package com.github.spb.tget.infrastructure.converter;
 
 import com.google.gson.Gson;
 import spark.ResponseTransformer;
