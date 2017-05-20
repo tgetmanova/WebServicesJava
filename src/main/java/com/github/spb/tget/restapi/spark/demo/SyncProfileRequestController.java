@@ -1,6 +1,6 @@
 package com.github.spb.tget.restapi.spark.demo;
 
-import static com.github.spb.tget.infrastructure.converter.JsonDataConverter.*;
+import static com.github.spb.tget.restapi.spark.demo.JsonDataConverter.*;
 import static spark.Spark.*;
 
 import com.github.spb.tget.infrastructure.manager.SyncProfileRequestManager;
