@@ -1,14 +1,13 @@
 package com.github.spb.tget.demo.model;
 
-import java.time.Instant;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class SyncProfileRequest extends MyAccountRequestBase {
 
     private Boolean advertisingOptIn;
 
-    private Instant dateModified;
+    private LocalDateTime dateModified;
 
     private String countryIsoCode;
 
@@ -18,7 +17,7 @@ public class SyncProfileRequest extends MyAccountRequestBase {
     }
 
     public SyncProfileRequest(UUID usersId, UUID requestId, Boolean advertisingOptIn,
-                              Instant dateModified, String countryIsoCode, String locale) {
+                              LocalDateTime dateModified, String countryIsoCode, String locale) {
         super(usersId, requestId);
         this.advertisingOptIn = advertisingOptIn;
         this.dateModified = dateModified;
@@ -42,11 +41,11 @@ public class SyncProfileRequest extends MyAccountRequestBase {
         this.countryIsoCode = countryIsoCode;
     }
 
-    public Instant getDateModified() {
+    public LocalDateTime getDateModified() {
         return dateModified;
     }
 
-    public void setDateModified(Instant dateModified) {
+    public void setDateModified(LocalDateTime dateModified) {
         this.dateModified = dateModified;
     }
 

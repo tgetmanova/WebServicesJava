@@ -3,6 +3,9 @@ package com.github.spb.tget.demo.converter;
 import com.github.spb.tget.demo.data.UserEntity;
 import com.github.spb.tget.demo.model.SyncProfileRequest;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
 public class UserSyncRequestConverter {
 
     public static SyncProfileRequest toSyncProfileRequest(UserEntity userEntity)
@@ -13,6 +16,6 @@ public class UserSyncRequestConverter {
         }
 
         return new SyncProfileRequest(userEntity.getUserId(), userEntity.getRequestId(), userEntity.getAdvertisingOptIn(),
-                userEntity.getDateModified(), userEntity.getCountryIsoCode(), userEntity.getLocale());
+                LocalDateTime.ofInstant( userEntity.getDateModified(), ZoneId.systemDefault()), userEntity.getCountryIsoCode(), userEntity.getLocale());
     }
 }
