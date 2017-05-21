@@ -1,6 +1,6 @@
 package com.github.spb.tget.infrastructure.manager;
 
-import com.github.spb.tget.infrastructure.Main;
+import com.github.spb.tget.SparkBasedApp;
 import com.github.spb.tget.infrastructure.converter.UserSyncRequestConverter;
 import com.github.spb.tget.infrastructure.data.UserEntity;
 import com.github.spb.tget.infrastructure.model.SyncProfileRequest;
@@ -27,7 +27,7 @@ public class SyncProfileRequestManager {
         Properties props = new Properties();
 
         try (InputStream reader = new FileInputStream(
-                new File(Main.class.getClassLoader().getResource("app.properties").getPath()))) {
+                new File(SyncProfileRequestManager.class.getClassLoader().getResource("app.properties").getPath()))) {
             props.load(reader);
         }
 
