@@ -74,7 +74,7 @@ public class SyncProfileRequestManager {
         this.userRepository.updateUser(UserSyncRequestConverter.toUserEntity(syncProfileRequestToUpdate));
     }
 
-    public void DeleteSyncProfileRequest(UUID userId) {
+    public void deleteSyncProfileRequest(UUID userId) {
         this.userRepository.deleteUser(userId);
     }
 

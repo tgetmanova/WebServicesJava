@@ -73,4 +73,17 @@ public class SyncProfileRequestController {
         this.syncProfileRequestManager.updateSyncProfileRequest(syncProfileRequest);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
+
+    @RequestMapping(value = "/profiles/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<SyncProfileRequest> deleteSyncProfileRequest(@PathVariable("id") UUID id) {
+        try {
+            this.syncProfileRequestManager.getSyncProfileRequestById(id);
+        } catch (IllegalStateException exception) {
+            return new ResponseEntity(String.format("Failed to delete profile: profile with ID: %s is not found", id),
+                    HttpStatus.NOT_FOUND);
+        }
+
+        this.syncProfileRequestManager.deleteSyncProfileRequest(id);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
 }
