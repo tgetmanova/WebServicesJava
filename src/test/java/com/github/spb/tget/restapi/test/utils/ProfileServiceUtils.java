@@ -1,4 +1,4 @@
-package com.github.spb.tget.restapi.spring.test.utils;
+package com.github.spb.tget.restapi.test.utils;
 
 import com.github.spb.tget.infrastructure.model.SyncProfileRequest;
 import com.google.gson.Gson;
