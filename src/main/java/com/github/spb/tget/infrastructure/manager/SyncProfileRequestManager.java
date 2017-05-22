@@ -87,11 +87,11 @@ public class SyncProfileRequestManager {
         StringJoiner validations = new StringJoiner(";");
 
         if (!this.isCountryIsoCodeValid(request.getCountryIsoCode())) {
-            validations.add(String.format("%s is incorrect ISO code", request.getCountryIsoCode()));
+            validations.add(String.format("'%s' is incorrect ISO code", request.getCountryIsoCode()));
         }
 
         if (!this.isLocaleStringValid(request.getLocale())) {
-            validations.add(String.format("%s is incorrect locale format", request.getLocale()));
+            validations.add(String.format("'%s' is incorrect locale format", request.getLocale()));
         }
 
         String validationsString = validations.toString();
@@ -106,7 +106,7 @@ public class SyncProfileRequestManager {
     }
 
     private boolean isLocaleStringValid(String locale) {
-        if (locale.isEmpty()) {
+        if (locale != null && locale.isEmpty()) {
             return false;
         }
         Locale[] locales = Locale.getAvailableLocales();
