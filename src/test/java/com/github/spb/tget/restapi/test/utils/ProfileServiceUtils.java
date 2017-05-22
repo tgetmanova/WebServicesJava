@@ -61,4 +61,20 @@ public class ProfileServiceUtils {
 
         return profile;
     }
+
+    public static String getResponseBodyFromInputStreamAsString(InputStream input) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(input))) {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            String line = reader.readLine();
+            while (line != null) {
+                stringBuilder.append(line);
+                line = reader.readLine();
+            }
+            
+            return stringBuilder.toString();
+        } catch (IOException throwable) {
+            throw new IllegalStateException(String.format("Cannot read from input stream: %s", throwable.getMessage()));
+        }
+    }
 }

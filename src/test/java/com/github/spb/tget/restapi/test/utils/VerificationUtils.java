@@ -1,21 +1,25 @@
 package com.github.spb.tget.restapi.test.utils;
 
-import org.junit.runners.model.MultipleFailureException;
+import junit.framework.AssertionFailedError;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.StringJoiner;
 
 public class VerificationUtils {
 
     public static void aggregate(Runnable... runnables) throws Exception {
-        List<Throwable> throwables = new ArrayList<>();
+        StringJoiner errors = new StringJoiner(System.lineSeparator());
         for (Runnable r : runnables) {
             try {
                 r.run();
-            } catch (Throwable t) {
-                throwables.add(t);
+            } catch (Throwable throwable) {
+                errors.add(throwable.getMessage());
             }
         }
-        MultipleFailureException.assertEmpty(throwables);
+
+        String stringMessages = errors.toString();
+
+        if (!stringMessages.isEmpty()) {
+            throw new AssertionFailedError(stringMessages);
+        }
     }
 }
