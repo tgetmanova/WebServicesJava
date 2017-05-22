@@ -1,7 +1,7 @@
-package com.github.spb.tget.restapi.spring.test;
+package com.github.spb.tget.restapi.test;
 
 import com.github.spb.tget.infrastructure.model.SyncProfileRequest;
-import com.github.spb.tget.restapi.spring.test.utils.ProfileServiceUtils;
+import com.github.spb.tget.restapi.test.utils.ProfileServiceUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -18,11 +18,11 @@ public class SyncProfileRequestControllerCreateTest extends SyncProfileRequestCo
     @Test
     public void createSyncProfileRequest() throws IOException {
 
-        HttpPost httpPost = new HttpPost("http://localhost:8080/profiles");
+        HttpPost httpPost = new HttpPost(ProfileServiceUtils.PROFILES_BASE_URL);
 
-        SyncProfileRequest expetedProfile = ProfileServiceUtils.generateValidSyncProfileRequest();
+        SyncProfileRequest expectedProfile = ProfileServiceUtils.generateValidSyncProfileRequest();
 
-        String json = ProfileServiceUtils.gson.toJson(expetedProfile).toString();
+        String json = ProfileServiceUtils.gson.toJson(expectedProfile).toString();
         StringEntity entity = new StringEntity(json);
 
         httpPost.setEntity(entity);
@@ -34,19 +34,19 @@ public class SyncProfileRequestControllerCreateTest extends SyncProfileRequestCo
         List<SyncProfileRequest> updatedList = ProfileServiceUtils.retrieveListOfCurrentSyncProfileRequests();
         SyncProfileRequest createdProfile = updatedList
                 .stream()
-                .filter(i -> i.getUserId().equals(expetedProfile.getUserId()))
+                .filter(i -> i.getUserId().equals(expectedProfile.getUserId()))
                 .findFirst()
                 .orElse(null);
 
         Assert.assertNotNull("Failed to create profile", createdProfile);
         errorCollector.checkThat("incorrect AdvertisingOptIn",
                 createdProfile.getAdvertisingOptIn(),
-                equalTo(expetedProfile.getAdvertisingOptIn()));
+                equalTo(expectedProfile.getAdvertisingOptIn()));
         errorCollector.checkThat("incorrect Country ISO code",
                 createdProfile.getCountryIsoCode(),
-                equalTo(expetedProfile.getCountryIsoCode()));
+                equalTo(expectedProfile.getCountryIsoCode()));
         errorCollector.checkThat("incorrect Locale",
                 createdProfile.getLocale(),
-                equalTo(expetedProfile.getLocale()));
+                equalTo(expectedProfile.getLocale()));
     }
 }

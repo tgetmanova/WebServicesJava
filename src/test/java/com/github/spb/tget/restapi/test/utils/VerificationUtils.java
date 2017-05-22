@@ -1,4 +1,4 @@
-package com.github.spb.tget.restapi.spring.test.utils;
+package com.github.spb.tget.restapi.test.utils;
 
 import org.junit.runners.model.MultipleFailureException;
 
