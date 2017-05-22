@@ -1,4 +1,4 @@
-package com.github.spb.tget.restapi.test;
+package com.github.spb.tget.restapi.spring.test;
 
 import com.github.spb.tget.infrastructure.model.SyncProfileRequest;
 import com.github.spb.tget.restapi.spring.test.utils.ProfileServiceUtils;

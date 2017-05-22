@@ -1,4 +1,4 @@
-package com.github.spb.tget.restapi.test;
+package com.github.spb.tget.restapi.spring.test;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
